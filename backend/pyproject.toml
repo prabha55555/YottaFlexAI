@@ -1,0 +1,11 @@
+[tool.ruff]
+line-length = 120
+exclude = [".venv", "data"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "B"]
+ignore = ["E501", "B008"]  # long lines are wrapped for readability; FastAPI Depends() defaults are idiomatic
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
