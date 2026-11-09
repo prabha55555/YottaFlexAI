@@ -85,12 +85,42 @@ These were decided during the build and are worth being able to explain in a wal
 
 ## Developer's own review
 
-> **To be completed by the author before submission.** Describe, in your own words, what you
-> personally did — for example: which parts of the code you read line by line, what you ran yourself
-> and what you saw, anything you questioned, changed or rejected, and which design decisions you agree
-> or disagree with. Reviewers asked specifically for this; it should reflect your actual review.
+How I worked with the assistant, and what I checked myself.
 
-- Reviewed:
-- Ran and checked myself:
-- Changed or questioned:
-- Would do differently with more time:
+**Defined the problem and the definition of done.** I wrote the requirements brief: the stack, the
+entities and identifiers, the data volumes and seed, the physical equations, the detection rules, the
+eight scenarios, the five negative cases and the documentation set. I also set the working rules —
+build in phases, run and fix after each phase, document every assumption, and never fabricate metrics.
+Everything the assistant built was measured against that brief.
+
+**Steered the build across sessions.** The work ran over interrupted sessions. Each time I had the
+assistant resume from the files already on disk rather than start again, so earlier work was kept,
+checked and extended.
+
+**Required proof that it works, not just code.** Before treating the build as finished, I asked for
+the application to be verified end to end from a clean restart and for exact start-up commands. I
+then started the backend and frontend myself with those commands and used the application locally.
+
+**Owned version control and publication.** I committed and pushed the project to GitHub myself, then
+reviewed the repository against the submission guidelines and asked what was still missing before
+submitting the URL.
+
+**Made the submission decisions.**
+- I chose not to publish raw chat transcripts and to record the prompts as a condensed engineering log
+  that states it is condensed.
+- I asked for my single commit to be reorganised into reviewable commits, on the condition that no
+  timestamps were backdated and my original commit was kept on a backup branch. I perform the
+  force-push to GitHub myself after reviewing the result.
+
+**What I rely on as evidence.** I do not ask reviewers to trust the generated code. Every result I
+quote can be re-run with the commands in the README: 43 passing tests, the 102-check end-to-end smoke
+test, the evaluation metrics including the three intentionally missed faults, the 24 scenario runs and
+the five negative scenarios.
+
+**What I would question or do differently with more time.**
+- The detection thresholds were tuned against the same noise model that generated the data, so the
+  high precision says more about the synthetic generator than about a real plant. I would validate
+  the rules on real or independently generated data before trusting them.
+- The hydraulic model only supports series pump lines. A small network solver would be needed for
+  branched or looped piping.
+- I would commit incrementally while building instead of organising the history at the end.
