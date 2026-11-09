@@ -1,0 +1,13 @@
+{
+  "case_id": "NEG-002",
+  "title": "Tank level exceeds capacity",
+  "check": "tank_capacity",
+  "description": "Level readings above 100 % imply a stored volume greater than the tank's physical capacity.",
+  "tank": {"id": "TANK-903", "capacity_m3": 800.0, "height_m": 8.0, "high_alarm_pct": 95.0},
+  "readings": [
+    {"timestamp": "2026-10-22T00:00:00", "level_pct": 96.5},
+    {"timestamp": "2026-10-22T00:15:00", "level_pct": 104.2},
+    {"timestamp": "2026-10-22T00:30:00", "level_pct": 112.0}
+  ],
+  "expected_error_code": "VOLUME_EXCEEDS_CAPACITY"
+}

@@ -1,0 +1,17 @@
+{
+  "case_id": "NEG-001",
+  "title": "Pipe references a missing node",
+  "check": "topology",
+  "description": "A pipe declares PUMP-999 as its upstream node, but no such pump exists. The topology validator must reject the connection.",
+  "facility_id": "FAC-NEG",
+  "nodes": [
+    {"id": "TANK-901", "node_type": "TANK", "facility_id": "FAC-NEG", "name": "Neg Tank 1"},
+    {"id": "VALVE-901", "node_type": "VALVE", "role": "INLINE", "facility_id": "FAC-NEG", "name": "Neg Valve 1"},
+    {"id": "TANK-902", "node_type": "TANK", "facility_id": "FAC-NEG", "name": "Neg Tank 2"}
+  ],
+  "pipes": [
+    {"id": "PIPE-901", "facility_id": "FAC-NEG", "from_node_type": "TANK", "from_node_id": "TANK-901", "to_node_type": "VALVE", "to_node_id": "VALVE-901"},
+    {"id": "PIPE-902", "facility_id": "FAC-NEG", "from_node_type": "PUMP", "from_node_id": "PUMP-999", "to_node_type": "TANK", "to_node_id": "TANK-902"}
+  ],
+  "expected_error_code": "MISSING_NODE"
+}

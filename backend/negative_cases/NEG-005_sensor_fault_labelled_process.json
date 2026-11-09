@@ -1,0 +1,13 @@
+{
+  "case_id": "NEG-005",
+  "title": "Sensor fault incorrectly labelled as process fault",
+  "check": "classification",
+  "description": "The delivery flow meter of a transfer main under-reads by 12 % (instrument bias). A naive rule (upstream flow > downstream flow => leak) labels this a LEAK. The validator re-runs the three-way reconciliation (pump flow, delivery flow, tank level change) and must reject the LEAK label because the receiving tank's level confirms that the full upstream flow arrived.",
+  "plant_fixture": "mini_plant.json",
+  "seed": 20261022,
+  "steps": 64,
+  "step_minutes": 15,
+  "fault": {"sensor_role": "flow_down", "mode": "BIAS", "magnitude": 0.12, "start_step": 16},
+  "claimed_label": {"issue_type": "LEAK", "category": "PROCESS", "source": "naive flow-imbalance rule"},
+  "expected_error_code": "MISCLASSIFIED_SENSOR_FAULT"
+}

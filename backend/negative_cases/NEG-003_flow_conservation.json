@@ -1,0 +1,13 @@
+{
+  "case_id": "NEG-003",
+  "title": "Flow conservation violated beyond tolerance",
+  "check": "mass_balance",
+  "description": "Over a 24 h window the metered inflow does not equal outflow plus storage change; the residual exceeds the 2 % tolerance.",
+  "window_hours": 24,
+  "tolerance_pct": 2.0,
+  "total_inflow_m3": 2400.0,
+  "total_outflow_m3": 2050.0,
+  "storage_change_m3": 60.0,
+  "boundary_sensor_faults": [],
+  "expected_error_code": "MASS_BALANCE_EXCEPTION"
+}

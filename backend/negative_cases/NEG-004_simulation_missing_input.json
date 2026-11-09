@@ -1,0 +1,17 @@
+{
+  "case_id": "NEG-004",
+  "title": "Simulation output lacks input configuration",
+  "check": "simulation_record",
+  "description": "A simulation record carries results but no original configuration / parameters, so its outputs cannot be traced or reproduced.",
+  "simulation": {
+    "id": "SIM-2026-999999",
+    "facility_id": "FAC-001",
+    "scenario": "LEAKAGE",
+    "status": "COMPLETED",
+    "original_config": null,
+    "modified_parameters": null,
+    "effective_config": null,
+    "summary": {"kpis": {"total_inflow_m3": 2300.5, "total_outflow_m3": 2150.2}}
+  },
+  "expected_error_code": "MISSING_INPUT_CONFIGURATION"
+}
