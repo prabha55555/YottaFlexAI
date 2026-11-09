@@ -3,8 +3,8 @@
 This project was built with an AI coding assistant, **Claude Code** (Anthropic, Claude Opus 5.5),
 working directly in the repository: creating files, running commands, executing tests, starting the
 servers and driving a real browser. The prompts are in
-[prompt-history/prompts.md](../prompt-history/prompts.md). Commits carry a `Co-Authored-By: Claude`
-trailer.
+[prompt-history/prompts.md](../prompt-history/prompts.md). AI assistance applies to the whole
+repository and is disclosed here and in the prompt history rather than per commit.
 
 ## How the work was split
 
