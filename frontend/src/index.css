@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  /* Chart tokens (dataviz reference palette, light mode) */
+  --surface-1: #fcfcfb;
+  --text-primary: #0b0b0b;
+  --text-secondary: #52514e;
+  --grid: #e9e8e4;
+  --series-1: #2a78d6;
+  --series-2: #eb6834;
+  --series-3: #1baf7a;
+  --series-4: #eda100;
+  --series-5: #e87ba4;
+  --series-6: #008300;
+  --series-7: #6250d6;
+  --series-8: #e34948;
+  --status-good: #0ca30c;
+  --status-warning: #fab219;
+  --status-serious: #ec835a;
+  --status-critical: #d03b3b;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  @apply bg-surface text-ink font-sans antialiased;
+  font-size: 14px;
+}
+
+.num {
+  font-variant-numeric: tabular-nums;
+}
+
+.card {
+  @apply bg-panel border border-line rounded-lg;
+}
+
+.btn {
+  @apply inline-flex items-center gap-1.5 rounded-md px-3 py-1.5 text-sm font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-1;
+}
+.btn-primary {
+  @apply btn bg-brand-600 text-white hover:bg-brand-700;
+}
+.btn-secondary {
+  @apply btn bg-white border border-line text-ink hover:bg-stone-50;
+}
+.btn-danger {
+  @apply btn bg-white border border-red-200 text-critical hover:bg-red-50;
+}
+.btn-ghost {
+  @apply btn text-ink-2 hover:bg-stone-100;
+}
+
+.input {
+  @apply w-full rounded-md border border-line bg-white px-2.5 py-1.5 text-sm text-ink placeholder:text-ink-3 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500;
+}
+.label {
+  @apply block text-xs font-medium text-ink-2 mb-1;
+}
+
+.table {
+  @apply w-full text-sm;
+}
+.table th {
+  @apply text-left text-xs font-semibold uppercase tracking-wide text-ink-2 px-3 py-2 border-b border-line bg-stone-50 whitespace-nowrap;
+}
+.table td {
+  @apply px-3 py-2 border-b border-stone-100 align-top;
+}
+.table tbody tr:hover {
+  @apply bg-brand-50/40;
+}
+
+/* React Flow tweaks */
+.react-flow__attribution {
+  display: none;
+}
